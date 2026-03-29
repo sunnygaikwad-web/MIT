@@ -1,0 +1,533 @@
+/* ============================================
+   Hospital Dashboard – Production Styles
+   Premium cards, refined layout, polished feel
+   ============================================ */
+
+.hospital-dashboard {
+  padding: 2rem 0 4rem;
+}
+
+/* Page Header */
+.page-header {
+  margin-bottom: 1.75rem;
+}
+
+.page-header h1 {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.25rem;
+}
+
+.page-description {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+
+/* Stats Row */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.875rem;
+  margin-bottom: 1.75rem;
+}
+
+.stat-card {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 1rem 1.125rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgba(0,0,0,0.01) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.stat-card:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.stat-icon {
+  font-size: 1.25rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  background: rgba(0, 0, 0, 0.04);
+  border: 1px solid var(--border-subtle);
+  flex-shrink: 0;
+}
+
+.stat-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-number {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.stat-label {
+  font-family: var(--font-body);
+  font-size: 0.625rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 0.25rem;
+}
+
+.stat-pending .stat-number { color: var(--accent-400); }
+.stat-assigned .stat-number { color: var(--info-400); }
+.stat-completed .stat-number { color: var(--success-400); }
+
+/* Dashboard Grid */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+/* Form Section */
+.form-section .card {
+  position: sticky;
+  top: 5rem;
+}
+
+.card-header {
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.card-header h2 {
+  font-family: var(--font-heading);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.card-description {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
+.request-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.875rem;
+}
+
+.urgency-preview {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 0.875rem;
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.urgency-critical {
+  background: rgba(239, 68, 68, 0.08);
+  color: var(--primary-400);
+  border: 1px solid rgba(239, 68, 68, 0.15);
+  animation: pulse-badge 2s infinite;
+}
+
+.urgency-urgent {
+  background: rgba(249, 115, 22, 0.08);
+  color: var(--warning-400);
+  border: 1px solid rgba(249, 115, 22, 0.15);
+}
+
+.urgency-normal {
+  background: rgba(34, 197, 94, 0.08);
+  color: var(--success-400);
+  border: 1px solid rgba(34, 197, 94, 0.15);
+}
+
+.submit-btn {
+  margin-top: 0.375rem;
+  width: 100%;
+}
+
+/* Requests Section */
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.875rem;
+}
+
+.section-header h2 {
+  font-family: var(--font-heading);
+  font-size: 1.0625rem;
+  font-weight: 600;
+}
+
+.request-count {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.requests-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* Request Card */
+.request-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.request-card.critical-glow {
+  border-color: rgba(239, 68, 68, 0.15);
+  box-shadow: 0 0 24px rgba(239, 68, 68, 0.06);
+}
+
+.request-card.critical-glow::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--primary-500), transparent);
+  z-index: 1;
+}
+
+.request-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.request-blood-group {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.blood-type {
+  font-family: var(--font-heading);
+  font-size: 1.375rem;
+  font-weight: 800;
+  color: var(--primary-400);
+  letter-spacing: -0.02em;
+}
+
+.blood-units {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.request-badges {
+  display: flex;
+  gap: 0.375rem;
+  flex-wrap: wrap;
+}
+
+/* Request Details */
+.request-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.875rem;
+  margin-bottom: 0.875rem;
+}
+
+.request-details p {
+  display: flex;
+  align-items: center;
+  gap: 0.3125rem;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.request-donor-assigned {
+  color: var(--info-400) !important;
+}
+
+.request-donor-assigned strong {
+  color: var(--text-primary);
+}
+
+/* Status Progress Bar */
+.status-progress {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.875rem;
+  padding: 0.625rem 0.75rem;
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+}
+
+.progress-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3125rem;
+  flex-shrink: 0;
+}
+
+.progress-step span {
+  font-family: var(--font-body);
+  font-size: 0.5625rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.step-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--neutral-700);
+  border: 2px solid var(--neutral-600);
+  transition: all var(--transition-slow);
+}
+
+.progress-step.active .step-dot {
+  background: var(--primary-500);
+  border-color: var(--primary-400);
+  box-shadow: 0 0 8px rgba(239, 68, 68, 0.35);
+}
+
+.progress-step.active span {
+  color: var(--text-primary);
+}
+
+.progress-line {
+  flex: 1;
+  height: 2px;
+  background: rgba(0, 0, 0, 0.05);
+  margin: 0 0.375rem;
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--primary-500), var(--primary-400));
+  border-radius: var(--radius-full);
+  transition: width 0.6s var(--ease-out-expo);
+}
+
+.progress-fill.filled {
+  width: 100%;
+}
+
+/* Request Actions */
+.request-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Matched Donors (Expanded) */
+.matched-donors {
+  margin-top: 0.875rem;
+  padding-top: 0.875rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.matched-donors h4 {
+  font-family: var(--font-heading);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  margin-bottom: 0.625rem;
+  color: var(--text-secondary);
+}
+
+.no-donors {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-style: italic;
+}
+
+.donors-mini-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.donor-mini-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0.75rem;
+  background: rgba(0, 0, 0, 0.03);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+  transition: all var(--transition-fast);
+}
+
+.donor-mini-card:hover {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: var(--border-color);
+}
+
+.donor-mini-info {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.donor-mini-name {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.donor-mini-blood {
+  font-size: 0.625rem;
+  font-weight: 700;
+  color: var(--primary-400);
+  background: rgba(239, 68, 68, 0.08);
+  padding: 0.0625rem 0.4375rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(239, 68, 68, 0.12);
+}
+
+.donor-mini-distance {
+  font-size: 0.6875rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 3rem 2rem;
+}
+
+.empty-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.875rem;
+  animation: float 3s ease-in-out infinite;
+  display: inline-block;
+}
+
+.empty-state h3 {
+  font-family: var(--font-heading);
+  margin-bottom: 0.375rem;
+  color: var(--text-primary);
+  font-size: 1.0625rem;
+}
+
+.empty-state p {
+  color: var(--text-muted);
+  font-size: 0.8125rem;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-section .card {
+    position: static;
+  }
+
+  .stats-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .hospital-dashboard {
+    padding: 1.5rem 0 3rem;
+  }
+
+  .stats-row {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.625rem;
+  }
+
+  .stat-card {
+    padding: 0.875rem;
+  }
+
+  .stat-number {
+    font-size: 1.25rem;
+  }
+
+  .request-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-row {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-card {
+    padding: 0.75rem;
+  }
+
+  .request-actions {
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  
+  .request-actions button {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .blood-type {
+    font-size: 1.125rem;
+  }
+}

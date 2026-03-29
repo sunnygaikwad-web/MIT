@@ -1,0 +1,366 @@
+/* ============================================
+   Map View – Production Styles
+   Polished map presentation with premium markers
+   ============================================ */
+
+.map-page {
+  padding: 2rem 0 4rem;
+}
+
+.map-page .page-header {
+  margin-bottom: 1.75rem;
+}
+
+.map-page .page-header h1 {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.25rem;
+}
+
+/* Map Stats */
+.map-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.875rem;
+  margin-bottom: 1.25rem;
+}
+
+.map-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.875rem 0.75rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  position: relative;
+  overflow: hidden;
+}
+
+.map-stat::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.map-stat-number {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  text-shadow: 0 0 10px currentColor; /* Outer glow inheriting the inline style color */
+}
+
+.map-stat-label {
+  font-family: var(--font-body);
+  font-size: 0.5625rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+
+/* Map Container */
+.map-container {
+  height: 520px;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-xl);
+  position: relative;
+}
+
+.map-container::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  pointer-events: none;
+  z-index: 400;
+}
+
+/* Vignette overlay for deeper atmosphere */
+.map-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 30%, rgba(7, 7, 10, 0.8) 120%);
+  pointer-events: none;
+  z-index: 400; /* Above tiles, below markers (z-index of leaflet panes varies, but we want it below markers if possible, or just click-through) */
+  mix-blend-mode: multiply;
+}
+
+/* Custom Markers Container */
+.custom-marker {
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+}
+
+.marker-pin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
+}
+
+/* Hospital pulsing radar marker */
+.hospital-marker-container {
+  display: flex !important; /* Override leaflet default */
+  align-items: center;
+  justify-content: center;
+}
+
+.hospital-pulse-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background-color: var(--info-500);
+  border-radius: 50%;
+  z-index: 1;
+  animation: radar-pulse 3s cubic-bezier(0.2, 0.8, 0, 1) infinite;
+}
+
+.hospital-pin {
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, var(--info-500), var(--info-600));
+  border-radius: 50%;
+  box-shadow: 0 4px 16px rgba(59, 130, 246, 0.5), inset 0 2px 4px rgba(255,255,255,0.3);
+  border: 3px solid rgba(255, 255, 255, 0.9);
+}
+
+.hospital-pin svg {
+  filter: drop-shadow(0 2px 2px rgba(0,0,0,0.2));
+}
+
+@keyframes radar-pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2.5);
+    opacity: 0;
+  }
+}
+
+/* Premium Donor Markers */
+.donor-pin {
+  width: 100%;
+  height: 100%;
+  transform-origin: center bottom;
+  transition: transform var(--transition-base);
+}
+
+.donor-marker:hover .donor-pin {
+  transform: scale(1.1) translateY(-2px);
+}
+
+.available-pin svg path:first-child {
+  fill: url(#available-gradient) !important; /* We'll use CSS to force the color since it's an inline string */
+  fill: var(--success-500) !important;
+}
+
+.available-pin {
+  filter: drop-shadow(0 4px 10px rgba(34, 197, 94, 0.4));
+}
+
+.unavailable-pin svg path:first-child {
+  fill: var(--neutral-600) !important;
+}
+
+.unavailable-pin {
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+  opacity: 0.6;
+}
+
+/* Premium Popup Redesign */
+.leaflet-popup.premium-popup {
+  margin-bottom: 24px !important;
+}
+
+.leaflet-popup-content-wrapper {
+  background: var(--bg-elevated) !important;
+  color: var(--text-primary) !important;
+  border-radius: var(--radius-lg) !important;
+  border: 1px solid var(--border-color) !important;
+  box-shadow: var(--shadow-xl), 0 0 20px rgba(0,0,0,0.5) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 4px !important;
+}
+
+.leaflet-popup-tip-container {
+  margin-top: -1px; /* Overlap border */
+}
+
+.leaflet-popup-tip {
+  background: var(--bg-elevated) !important;
+  border: 1px solid var(--border-color) !important;
+  border-top: none !important;
+  border-left: none !important;
+  box-shadow: 4px 4px 8px rgba(0,0,0,0.2) !important;
+}
+
+.leaflet-popup-content {
+  margin: 0.875rem !important;
+  font-family: var(--font-body) !important;
+  width: max-content !important;
+  min-width: 160px;
+}
+
+/* Popup Inner Content */
+.premium-popup .popup-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.premium-popup .popup-header strong {
+  font-family: var(--font-heading);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.premium-popup .popup-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-bottom: 4px;
+  color: var(--text-secondary);
+}
+
+.premium-popup .popup-distance {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.premium-popup .coord-text {
+  color: var(--text-muted);
+  font-size: 0.625rem;
+  font-family: monospace;
+  letter-spacing: 0.05em;
+}
+
+/* Legend */
+.map-legend {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  padding: 0.75rem 1.25rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-full);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  letter-spacing: 0.02em;
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.hospital-dot {
+  background: var(--info-500);
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.5);
+  border: 1px solid white;
+}
+
+.available-dot {
+  background: var(--success-500);
+  box-shadow: 0 0 8px rgba(34, 197, 94, 0.4);
+}
+
+.unavailable-dot {
+  background: var(--neutral-600);
+}
+
+.legend-circle {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px dashed var(--primary-500);
+  flex-shrink: 0;
+}
+
+/* Leaflet control overrides for Dark Theme */
+.leaflet-control-zoom a {
+  background: var(--bg-elevated) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+.leaflet-control-zoom a:hover {
+  background: var(--bg-card-hover) !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .map-page {
+    padding: 1.5rem 0 3rem;
+  }
+
+  .map-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .map-container {
+    height: 440px;
+  }
+}
+
+@media (max-width: 480px) {
+  .map-container {
+    height: 360px;
+  }
+
+  .map-legend {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.625rem;
+    border-radius: var(--radius-lg);
+  }
+}

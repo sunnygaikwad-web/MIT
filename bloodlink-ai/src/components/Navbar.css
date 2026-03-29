@@ -1,0 +1,225 @@
+/* ============================================
+   Navbar – Production Styles
+   Light Mode Minimalist
+   ============================================ */
+
+.navbar {
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+  height: 4rem;
+  background: var(--bg-primary);
+  border-bottom: 2px solid var(--text-primary);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.05);
+  /* Brutalist-lite shadow */
+}
+
+/* ---- Brand (Left) ---- */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-right: auto;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: heartbeat 3s ease-in-out infinite;
+}
+
+.brand-logo svg path {
+  fill: var(--primary-500) !important;
+}
+
+.brand-logo svg {
+  filter: drop-shadow(0 2px 4px rgba(229, 0, 0, 0.4));
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.brand-name {
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: var(--text-primary);
+  text-transform: uppercase;
+}
+
+.brand-ai {
+  margin-left: 0.125rem;
+  font-weight: 800;
+  color: var(--primary-500);
+}
+
+.brand-tagline {
+  font-family: var(--font-body);
+  font-size: 0.5625rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+/* ---- Navigation (Center elements now aligned right) ---- */
+.navbar-center {
+  margin-right: 1.5rem;
+}
+
+.nav-pills {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.375rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-full);
+}
+
+.nav-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-full);
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  transition: all var(--transition-base);
+  position: relative;
+  white-space: nowrap;
+}
+
+.nav-pill:hover {
+  color: var(--text-primary);
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.nav-pill.active {
+  color: #FFFFFF;
+  background: var(--text-primary);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.nav-pill-icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+.nav-pill.active .nav-pill-icon {
+  opacity: 1;
+}
+
+/* Pill Badges */
+.pill-badge {
+  min-width: 1.125rem;
+  height: 1.125rem;
+  padding: 0 0.3125rem;
+  border-radius: var(--radius-full);
+  font-size: 0.5625rem;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0;
+}
+
+.pill-badge.red {
+  background: var(--primary-500);
+  color: white;
+  box-shadow: 0 2px 4px rgba(229, 0, 0, 0.3);
+}
+
+.pill-badge.green {
+  background: var(--success-500);
+  color: white;
+}
+
+/* ---- Right Section ---- */
+.navbar-right {
+  display: flex;
+}
+
+.live-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 0.875rem;
+  border-radius: var(--radius-full);
+  background: rgba(229, 0, 0, 0.1);
+  border: 1px solid rgba(229, 0, 0, 0.2);
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary-500);
+  box-shadow: 0 0 8px rgba(229, 0, 0, 0.6);
+  animation: pulse-badge-light 2s infinite;
+}
+
+.live-text {
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  font-weight: 800;
+  color: var(--primary-600);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ============ Responsive ============ */
+@media (max-width: 900px) {
+  .brand-tagline { display: none; }
+  .navbar-center { margin-right: 1rem; }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 1rem;
+    height: 3.75rem;
+  }
+  .brand-name {
+    font-size: 1rem;
+  }
+  .nav-pill span:not(.pill-badge) { display: none; }
+  .nav-pill { padding: 0.5rem; }
+  .live-text { display: none; }
+  .live-indicator { padding: 0.375rem; border: none; background: none; box-shadow: none; }
+  .navbar-center { margin-right: 0.5rem; }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0 0.75rem;
+  }
+  .brand-name { display: none; }
+  .brand-logo svg {
+    width: 24px;
+    height: 24px;
+  }
+  .navbar-brand {
+    gap: 0;
+  }
+  .nav-pills {
+    gap: 0.1rem;
+  }
+  .nav-pill {
+    padding: 0.375rem 0.5rem;
+  }
+  .live-indicator {
+    padding-left: 0;
+  }
+}

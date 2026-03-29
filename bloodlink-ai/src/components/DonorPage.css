@@ -1,0 +1,414 @@
+/* ============================================
+   Donor Page – Production Styles
+   Polished cards, refined layout, premium feel
+   ============================================ */
+
+.donor-page {
+  padding: 2rem 0 4rem;
+}
+
+.donor-page .page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.donor-page .page-header h1 {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.25rem;
+}
+
+/* Registration Section */
+.registration-section {
+  margin-bottom: 1.75rem;
+}
+
+.registration-section .card-header {
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.registration-section .card-header h2 {
+  font-family: var(--font-heading);
+  font-size: 1.0625rem;
+  font-weight: 600;
+}
+
+.donor-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.form-row-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.875rem;
+}
+
+.form-hint {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-style: italic;
+  padding: 0.5rem 0.75rem;
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+}
+
+/* Donor Content Grid */
+.donor-content {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+/* Section Headers */
+.donor-list-section .section-header,
+.request-feed-section .section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.875rem;
+}
+
+.donor-list-section .section-header h2,
+.request-feed-section .section-header h2 {
+  font-family: var(--font-heading);
+  font-size: 1.0625rem;
+  font-weight: 600;
+}
+
+.donor-count,
+.request-count {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* Donor Selector */
+.donor-selector {
+  margin-bottom: 0.875rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.donor-selector label {
+  font-family: var(--font-body);
+  font-size: 0.625rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Donor Cards */
+.donor-cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-height: calc(100vh - 16rem);
+  overflow-y: auto;
+  padding-right: 0.25rem;
+}
+
+.donor-card {
+  cursor: pointer;
+  padding: 0.875rem 1rem;
+  transition: all var(--transition-base);
+  border-radius: var(--radius-lg);
+}
+
+.donor-card:hover {
+  transform: translateX(3px);
+  border-color: var(--border-hover);
+}
+
+.donor-card.active-donor {
+  border-color: rgba(220, 38, 38, 0.3);
+  box-shadow: 0 0 16px rgba(220, 38, 38, 0.08), inset 0 0 0 1px rgba(220, 38, 38, 0.05);
+  background: rgba(220, 38, 38, 0.03);
+}
+
+.donor-card.unavailable {
+  opacity: 0.45;
+}
+
+.donor-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  margin-bottom: 0.375rem;
+}
+
+.donor-avatar {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, var(--primary-600), var(--primary-800));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: white;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.2);
+}
+
+.donor-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.donor-name {
+  font-family: var(--font-heading);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.donor-blood-badge {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.5625rem;
+  font-weight: 700;
+  color: var(--primary-400);
+  background: rgba(239, 68, 68, 0.08);
+  padding: 0.0625rem 0.4375rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(239, 68, 68, 0.12);
+  margin-top: 0.125rem;
+}
+
+.availability-dot {
+  font-size: 0.625rem;
+  flex-shrink: 0;
+}
+
+.availability-dot.available {
+  color: var(--success-500);
+  text-shadow: 0 0 6px rgba(34, 197, 94, 0.5);
+}
+
+.availability-dot.busy {
+  color: var(--neutral-600);
+}
+
+.donor-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1875rem;
+  margin-bottom: 0.375rem;
+}
+
+.donor-meta-item {
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  color: var(--text-muted);
+}
+
+/* Active Donor Banner */
+.active-donor-banner {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.625rem 0.875rem;
+  background: rgba(220, 38, 38, 0.04);
+  border: 1px solid rgba(220, 38, 38, 0.1);
+  border-radius: var(--radius-md);
+  margin-bottom: 0.875rem;
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+}
+
+.active-donor-banner strong {
+  color: var(--text-primary);
+  font-family: var(--font-heading);
+  font-weight: 600;
+}
+
+.availability-status {
+  color: var(--success-400);
+  font-weight: 600;
+  font-size: 0.75rem;
+  margin-left: auto;
+}
+
+.unavailable-text {
+  color: var(--text-muted);
+}
+
+/* Request Feed */
+.request-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.request-feed-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.request-feed-card.match-highlight {
+  border-color: rgba(34, 197, 94, 0.2);
+  box-shadow: 0 0 20px rgba(34, 197, 94, 0.06);
+}
+
+.match-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.1875rem 0.75rem;
+  background: linear-gradient(135deg, var(--success-500), var(--success-600));
+  color: white;
+  font-family: var(--font-body);
+  font-size: 0.5625rem;
+  font-weight: 700;
+  border-bottom-left-radius: var(--radius-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  z-index: 1;
+}
+
+.feed-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.625rem;
+}
+
+.feed-blood-info {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.feed-card-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 0.875rem;
+}
+
+.feed-card-details p {
+  display: flex;
+  align-items: center;
+  gap: 0.3125rem;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.feed-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding-top: 0.625rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.mismatch-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* Empty State - shared with Hospital Dashboard */
+.donor-page .empty-state {
+  text-align: center;
+  padding: 3rem 2rem;
+}
+
+.donor-page .empty-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.875rem;
+  animation: float 3s ease-in-out infinite;
+  display: inline-block;
+}
+
+.donor-page .empty-state h3 {
+  font-family: var(--font-heading);
+  font-size: 1.0625rem;
+}
+
+.donor-page .empty-state p {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .donor-content {
+    grid-template-columns: 1fr;
+  }
+
+  .donor-cards-list {
+    max-height: 280px;
+  }
+
+  .form-row-3 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .donor-page {
+    padding: 1.5rem 0 3rem;
+  }
+
+  .form-row-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .active-donor-banner {
+    flex-wrap: wrap;
+  }
+
+  .availability-status {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .feed-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .donor-page {
+    padding: 1rem 0 2.5rem;
+  }
+  
+  .donor-card {
+    padding: 0.75rem 0.5rem;
+  }
+  
+  .active-donor-banner {
+    padding: 0.5rem;
+    font-size: 0.75rem;
+  }
+  
+  .feed-card-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .feed-card-actions button {
+    width: 100%;
+  }
+}
