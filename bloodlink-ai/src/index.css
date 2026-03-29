@@ -123,6 +123,8 @@ body {
   line-height: 1.6;
   min-height: 100vh;
   overflow-x: hidden;
+  max-width: 100vw;
+  width: 100%;
 }
 
 /* Very subtle background gradient/pattern for light mode */
@@ -184,6 +186,11 @@ h1 { font-size: 2rem; }
 h2 { font-size: 1.5rem; }
 h3 { font-size: 1.25rem; }
 h4 { font-size: 1rem; }
+
+p, span, h1, h2, h3, h4, h5, h6, div {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
 
 p {
   color: var(--text-secondary);
@@ -551,4 +558,45 @@ label {
   .grid-2, .grid-3 { grid-template-columns: 1fr; }
   .container { padding: 0 1rem; }
   .toast { min-width: unset; max-width: calc(100vw - 2rem); right: 0; }
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 1.375rem; }
+  h2 { font-size: 1.125rem; }
+  .container { padding: 0 0.875rem; width: 100%; }
+  
+  .btn {
+    width: 100%;
+    margin-bottom: 0.5rem;
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+  }
+  
+  .btn-sm {
+    padding: 0.625rem 0.875rem;
+  }
+  
+  input, select, textarea {
+    font-size: 1rem; /* Prevent iOS zoom */
+    padding: 0.875rem 1rem;
+  }
+
+  .toast-container {
+    top: 4.5rem;
+    left: 1rem;
+    right: 1rem;
+    width: calc(100vw - 2rem);
+  }
+  
+  .toast {
+    max-width: 100%;
+    margin: 0;
+    width: 100%;
+  }
+
+  /* Force stack any remaining flex rows not caught by specific css */
+  .flex-row-mobile-stack {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
 }
